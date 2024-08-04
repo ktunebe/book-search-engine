@@ -25,12 +25,14 @@ const resolvers = {
       const token = signToken(user)
       return { token, user }
     },
+
     addUser: async (parent, { username, email, password }, context) => {
       const user = await User.create({ username, email, password });
 
       const token = signToken(user)
       return { token, user }
     },
+
     saveBook: async (parent, { book }, context) => {
       if (context.user) {
         return User.findOneAndUpdate(
@@ -41,6 +43,7 @@ const resolvers = {
       }
       throw AuthenticationError
     },
+    
     removeBook: async (parent, { bookId }, context) => {
       if (context.user) {
         // only allow users to remove their own books
