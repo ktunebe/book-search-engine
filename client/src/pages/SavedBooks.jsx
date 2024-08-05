@@ -7,6 +7,7 @@ import { removeBookId } from '../utils/localStorage'
 import { GET_ME } from '../utils/queries'
 import { REMOVE_BOOK } from '../utils/mutations'
 
+// Used AI to help get books to delete immediately when button is clicked
 const SavedBooks = () => {
 	const [removeBook] = useMutation(REMOVE_BOOK)
 

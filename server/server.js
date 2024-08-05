@@ -19,6 +19,7 @@ const startApolloServer = async () => {
 	app.use(express.json())
 
 	app.use(
+		// Change proxy from /api to /graphql
 		'/graphql',
 		expressMiddleware(server, {
 			context: authMiddleware,

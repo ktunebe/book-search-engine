@@ -2,6 +2,7 @@ const { User } = require('../models')
 const { signToken, AuthenticationError } = require('../utils/auth')
 
 const resolvers = {
+	// query current user
 	Query: {
 		me: async (parent, args, context) => {
 			if (context.user) {
@@ -11,6 +12,7 @@ const resolvers = {
 		},
 	},
 	Mutation: {
+		// create new user
 		addUser: async (parent, { user }) => {
 			console.log(user)
 			user = await User.create(user)
@@ -19,6 +21,7 @@ const resolvers = {
 			console.log(user)
 			return { token, user }
 		},
+		// log in current user
 		login: async (parent, { email, password }, context) => {
 			const user = await User.findOne({ email })
 
@@ -31,6 +34,7 @@ const resolvers = {
 			const token = signToken(user)
 			return { token, user }
 		},
+		// save book to current user list
 		saveBook: async (parent, { book }, context) => {
 			if (context.user) {
 				return User.findOneAndUpdate(
@@ -43,6 +47,7 @@ const resolvers = {
 			}
 			throw AuthenticationError
 		},
+		// remove book from current user list
 		removeBook: async (parent, { bookId }, context) => {
 			if (context.user) {
 				return User.findOneAndUpdate(

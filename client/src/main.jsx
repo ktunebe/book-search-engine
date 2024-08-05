@@ -53,6 +53,7 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+	// Create Apollo Provider
 	<ApolloProvider client={apolloClient}>
 		<RouterProvider router={router} />
 	</ApolloProvider>

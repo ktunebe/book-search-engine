@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/client'
 
 import { createUser } from '../utils/API'
 import Auth from '../utils/auth'
+// Import ADD_USER mutation
 import { ADD_USER } from '../utils/mutations'
 
 const SignupForm = () => {
@@ -35,6 +36,7 @@ const SignupForm = () => {
 			event.stopPropagation()
 		}
 
+		// create user using form entry data
 		try {
 			const response = await addUser({ variables: { user: userFormData } })
 			console.log(response.data.addUser.token)
