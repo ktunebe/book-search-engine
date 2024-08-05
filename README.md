@@ -12,7 +12,7 @@ No installation needed.
 
 This app is set up for the user to be able to sign up/log in, search books, and keep a list of their books saved to the back end. 
 
-Link to deployed application: https://kent-tuneberg-coding.netlify.app/
+Link to deployed application: https://book-search-engine-ubpl.onrender.com
 
 Search Page
 
